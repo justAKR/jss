@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-font-smoothing: none;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  body {
+    @apply bg-[#f0f0f0] text-ink-900 font-sans;
+    background-image:
+      linear-gradient(0deg, transparent 24%, rgba(0, 0, 0, 0.03) 25%, rgba(0, 0, 0, 0.03) 26%, transparent 27%, transparent 74%, rgba(0, 0, 0, 0.03) 75%, rgba(0, 0, 0, 0.03) 76%, transparent 77%, transparent),
+      linear-gradient(90deg, transparent 24%, rgba(0, 0, 0, 0.03) 25%, rgba(0, 0, 0, 0.03) 26%, transparent 27%, transparent 74%, rgba(0, 0, 0, 0.03) 75%, rgba(0, 0, 0, 0.03) 76%, transparent 77%, transparent);
+    background-size: 50px 50px;
+  }
+  h1, h2, h3, h4 {
+    @apply font-display tracking-tight;
+    text-transform: uppercase;
+  }
+}
+
+@layer components {
+  .form-input {
+    @apply w-full border-2 border-ink-900 bg-white px-3 py-2.5 text-sm text-ink-900 outline-none transition-colors focus:bg-brand-50 focus:shadow-brutal-sm;
+    font-family: 'VT323', monospace;
+    font-size: 1.1rem;
+  }
+  .brutal-card {
+    @apply border-2 border-ink-900 bg-white shadow-brutal;
+  }
+  .brutal-btn {
+    @apply border-2 border-ink-900 font-display text-xs uppercase tracking-wide transition-all;
+  }
+  .brutal-btn:hover {
+    @apply -translate-x-[1px] -translate-y-[1px] shadow-brutal-lg;
+  }
+  .brutal-btn:active {
+    @apply translate-x-0 translate-y-0 shadow-brutal-sm;
+  }
+}
+
+@layer utilities {
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  @keyframes fade-in-up {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .animate-fade-in-up {
+    animation: fade-in-up 0.3s steps(4) both;
+  }
+  @keyframes pop {
+    0% { transform: scale(0.8); opacity: 0; }
+    50% { transform: scale(1.15); }
+    100% { transform: scale(1); opacity: 1; }
+  }
+  .animate-pop {
+    animation: pop 0.2s steps(3) both;
+  }
+  @keyframes bar-grow {
+    from { width: 0%; }
+  }
+  .animate-bar-grow {
+    animation: bar-grow 0.4s steps(8) both;
+  }
+  .pixel-corners {
+    clip-path: polygon(0 4px, 4px 4px, 4px 0, calc(100% - 4px) 0, calc(100% - 4px) 4px, 100% 4px, 100% calc(100% - 4px), calc(100% - 4px) calc(100% - 4px), calc(100% - 4px) 100%, 4px 100%, 4px calc(100% - 4px), 0 calc(100% - 4px));
+  }
+}
